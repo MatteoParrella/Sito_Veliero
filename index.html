@@ -9,15 +9,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #ece5de; font-family: 'Lato', sans-serif; -webkit-font-smoothing: antialiased; color: #221E1D; }
+    body { background: #fff; font-family: 'Lato', sans-serif; -webkit-font-smoothing: antialiased; color: #221E1D; }
     a { color: inherit; text-decoration: none; }
 
     .site-wrap {
-      max-width: 1080px;
-      margin: 0 auto;
+      width: 100%;
       background: #fff;
       min-height: 100vh;
-      box-shadow: 0 0 90px rgba(0,0,0,0.14);
     }
 
     /* HEADER */
@@ -550,7 +548,6 @@
       <h2 class="galleria-title">Uno sguardo da noi</h2>
     </div>
     <div class="galleria-grid" id="galleria-grid"></div>
-    <p class="galleria-note">Le foto del locale saranno presto disponibili.</p>
   </section>
 
   <!-- CONTATTI -->
@@ -745,14 +742,10 @@ const allergeni = [
 ];
 
 const galleryImages = [
-  'uploads/pasted-1781764516979-0.png',
-  'uploads/pasted-1781764600622-0.png',
-  'uploads/pasted-1781764611990-0.png',
-  'uploads/pasted-1781764622122-0.png',
-  'uploads/pasted-1781764633161-0.png',
-  'uploads/pasted-1781766370748-0.png',
-  'uploads/pasted-1781766384843-0.png',
-  'uploads/pasted-1781766405142-0.png',
+  'uploads/esterno.jpg',
+  'uploads/pizza1.jpg',
+  'uploads/pizza2.jpg',
+  'uploads/pizza3.jpg',
 ];
 
 // Render pizze
@@ -818,7 +811,14 @@ allergeni.forEach(a => {
 // Render gallery
 const galleryGrid = document.getElementById('galleria-grid');
 galleryImages.forEach(src => {
-  galleryGrid.innerHTML += `<div class="galleria-cell"><img src="${src}" alt="Il Veliero" loading="lazy"></div>`;
+  const img = new Image();
+  img.src = src;
+  img.alt = 'Il Veliero';
+  img.loading = 'lazy';
+  const cell = document.createElement('div');
+  cell.className = 'galleria-cell';
+  cell.appendChild(img);
+  galleryGrid.appendChild(cell);
 });
 
 // Tabs
