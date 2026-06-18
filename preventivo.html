@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Preventivo Sito Web – Il Veliero</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Lato', sans-serif; background: #F7F3EF; color: #221E1D; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    .page { max-width: 860px; margin: 0 auto; padding: 40px 24px 60px; }
+
+    /* HEADER */
+    .doc-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 28px; border-bottom: 2px solid #A81D22; margin-bottom: 36px; }
+    .doc-logo { display: flex; align-items: center; gap: 14px; }
+    .doc-logo img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid #ECE5DF; }
+    .doc-brand-name { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: #221E1D; }
+    .doc-brand-sub { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: #9A8F85; margin-top: 2px; }
+    .doc-meta { text-align: right; }
+    .doc-meta-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #A81D22; font-weight: 700; }
+    .doc-meta-val { font-size: 13px; color: #6E655C; margin-top: 3px; }
+
+    /* INTRO */
+    .doc-intro { margin-bottom: 36px; }
+    .doc-intro h1 { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #221E1D; margin-bottom: 10px; }
+    .doc-intro p { font-size: 13px; color: #6E655C; line-height: 1.8; max-width: 560px; }
+
+    /* OPZIONI */
+    .opzioni { display: flex; flex-direction: column; gap: 22px; }
+
+    .opzione { background: #fff; border: 1px solid #ECE5DF; border-radius: 6px; overflow: hidden; }
+    .opzione.featured { border-color: #A81D22; box-shadow: 0 4px 20px rgba(168,29,34,0.10); }
+
+    .op-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; border-bottom: 1px solid #F0EAE4; }
+    .featured .op-head { background: #A81D22; border-bottom-color: transparent; }
+
+    .op-badge { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; color: #A81D22; background: #FBF0F0; padding: 4px 10px; border-radius: 2px; }
+    .featured .op-badge { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.15); }
+
+    .op-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: #221E1D; margin-top: 2px; }
+    .featured .op-name { color: #fff; }
+
+    .op-price { font-family: 'Playfair Display', serif; font-size: 36px; font-weight: 700; color: #A81D22; line-height: 1; }
+    .featured .op-price { color: #fff; }
+    .op-price sup { font-size: 18px; vertical-align: super; }
+
+    .op-body { padding: 20px 24px; }
+    .op-desc { font-size: 13px; color: #6E655C; line-height: 1.7; margin-bottom: 16px; }
+
+    .op-items { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; }
+    .op-items li { font-size: 12px; color: #3D3530; display: flex; align-items: flex-start; gap: 8px; line-height: 1.4; }
+    .op-items li::before { content: '✓'; color: #A81D22; font-weight: 900; font-size: 11px; flex-shrink: 0; margin-top: 1px; }
+    .op-items li.no { color: #B0A498; }
+    .op-items li.no::before { content: '–'; color: #D9CFC6; }
+
+    .op-foot { padding: 14px 24px; background: #FBF8F4; border-top: 1px solid #F0EAE4; display: flex; align-items: center; justify-content: space-between; }
+    .featured .op-foot { background: #FBF0F0; border-top-color: rgba(168,29,34,0.12); }
+    .op-timing { font-size: 11px; color: #9A8F85; }
+    .op-timing strong { color: #221E1D; }
+    .op-note { font-size: 11px; color: #A81D22; font-style: italic; }
+
+    /* FOOTER */
+    .doc-footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #ECE5DF; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; }
+    .doc-footer-info { font-size: 11px; color: #9A8F85; line-height: 1.8; }
+    .doc-footer-sign { font-family: 'Playfair Display', serif; font-size: 15px; color: #221E1D; }
+    .doc-footer-sign small { display: block; font-family: 'Lato', sans-serif; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #9A8F85; margin-top: 4px; }
+
+    @media print {
+      body { background: #fff; }
+      .page { padding: 20px; }
+      .opzione { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="doc-header">
+    <div class="doc-logo">
+      <img src="uploads/logo.jpg" alt="Il Veliero">
+      <div>
+        <div class="doc-brand-name">Il Veliero</div>
+        <div class="doc-brand-sub">Pizzeria d'Asporto · Lesmo (MB)</div>
+      </div>
+    </div>
+    <div class="doc-meta">
+      <div class="doc-meta-label">Preventivo</div>
+      <div class="doc-meta-val">Sito web ufficiale</div>
+      <div class="doc-meta-val">Giugno 2025</div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="doc-intro">
+    <h1>Realizziamo il vostro sito web</h1>
+    <p>Di seguito trovate tre proposte per la creazione del sito ufficiale della Pizzeria Il Veliero. Ogni opzione include un sito professionale, ottimizzato per smartphone, pronto per essere pubblicato online.</p>
+  </div>
+
+  <!-- OPZIONI -->
+  <div class="opzioni">
+
+    <!-- OPZIONE 1 -->
+    <div class="opzione">
+      <div class="op-head">
+        <div>
+          <div class="op-badge">Opzione Base</div>
+          <div class="op-name">Essenziale</div>
+        </div>
+        <div class="op-price"><sup>€</sup>180</div>
+      </div>
+      <div class="op-body">
+        <p class="op-desc">Il necessario per essere trovati online con una presenza professionale e un menù digitale sempre aggiornabile.</p>
+        <ul class="op-items">
+          <li>Sito a pagina unica (home + menù)</li>
+          <li>Design professionale responsive</li>
+          <li>Menù digitale completo (pizze, calzoni, piadine, bibite)</li>
+          <li>Sezione contatti con mappa</li>
+          <li>Pulsante "Chiama per ordinare"</li>
+          <li>Ottimizzazione mobile (smartphone)</li>
+          <li class="no">Galleria fotografica</li>
+          <li class="no">SEO avanzato (schema dati Google)</li>
+          <li class="no">Foto professionali incluse</li>
+          <li class="no">Aggiornamenti futuri inclusi</li>
+        </ul>
+      </div>
+      <div class="op-foot">
+        <div class="op-timing">Consegna in <strong>5 giorni lavorativi</strong></div>
+        <div class="op-note">Pagamento alla consegna</div>
+      </div>
+    </div>
+
+    <!-- OPZIONE 2 — FEATURED -->
+    <div class="opzione featured">
+      <div class="op-head">
+        <div>
+          <div class="op-badge">★ Consigliata</div>
+          <div class="op-name">Completa</div>
+        </div>
+        <div class="op-price"><sup>€</sup>320</div>
+      </div>
+      <div class="op-body">
+        <p class="op-desc">La soluzione più scelta: include la galleria fotografica con le vostre foto e il posizionamento su Google Maps per essere trovati facilmente.</p>
+        <ul class="op-items">
+          <li>Tutto dell'opzione Base</li>
+          <li>Galleria fotografica (vostre foto)</li>
+          <li>SEO locale (schema dati Google)</li>
+          <li>Open Graph (anteprima sui social)</li>
+          <li>Orari e informazioni strutturate</li>
+          <li>Navigazione rapida tra categorie menù</li>
+          <li>Sezione allergeni informativa</li>
+          <li class="no">Foto professionali incluse</li>
+          <li class="no">Aggiornamenti futuri inclusi</li>
+          <li class="no">Hosting e dominio inclusi</li>
+        </ul>
+      </div>
+      <div class="op-foot">
+        <div class="op-timing">Consegna in <strong>7 giorni lavorativi</strong></div>
+        <div class="op-note">50% all'avvio · 50% alla consegna</div>
+      </div>
+    </div>
+
+    <!-- OPZIONE 3 -->
+    <div class="opzione">
+      <div class="op-head">
+        <div>
+          <div class="op-badge">Opzione Premium</div>
+          <div class="op-name">Chiavi in mano</div>
+        </div>
+        <div class="op-price"><sup>€</sup>480</div>
+      </div>
+      <div class="op-body">
+        <p class="op-desc">Tutto incluso: sito completo, pubblicazione online, dominio per 1 anno e supporto per eventuali modifiche nei 3 mesi successivi.</p>
+        <ul class="op-items">
+          <li>Tutto dell'opzione Completa</li>
+          <li>Pubblicazione online inclusa</li>
+          <li>Dominio .it per 1 anno (es. ilveliero.it)</li>
+          <li>Hosting per 1 anno incluso</li>
+          <li>3 mesi di supporto e modifiche</li>
+          <li>Aggiornamento menù incluso (1 volta)</li>
+          <li>Ottimizzazione velocità avanzata</li>
+          <li>Consegna con istruzioni d'uso</li>
+          <li class="no">Gestione social inclusa</li>
+          <li class="no">Foto professionali incluse</li>
+        </ul>
+      </div>
+      <div class="op-foot">
+        <div class="op-timing">Consegna in <strong>10 giorni lavorativi</strong></div>
+        <div class="op-note">50% all'avvio · 50% alla consegna</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <div class="doc-footer-info">
+      Preventivo valido 30 giorni dalla data di emissione.<br>
+      Prezzi IVA esclusa. Modifiche strutturali non incluse dopo la consegna.
+    </div>
+    <div class="doc-footer-sign">
+      Matteo Parrella
+      <small>Sviluppatore Web · parrellamatteo24@gmail.com</small>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
