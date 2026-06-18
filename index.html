@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Il Veliero – Pizzeria d'Asporto · Lesmo (MB)</title>
+  <meta name="description" content="Pizzeria Il Veliero a Peregallo di Lesmo (MB). Pizze, calzoni, piadine per asporto e domicilio. Tel. 039 688 8118 · 328 901 9456.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #ece5de; font-family: 'Lato', sans-serif; -webkit-font-smoothing: antialiased; color: #221E1D; }
+    a { color: inherit; text-decoration: none; }
+
+    .site-wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+      background: #fff;
+      min-height: 100vh;
+      box-shadow: 0 0 90px rgba(0,0,0,0.14);
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      padding: 13px clamp(16px, 4vw, 36px);
+      gap: 14px;
+      border-bottom: 1px solid #ECE5DF;
+    }
+    .header-logo {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid #E4D9CE;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; overflow: hidden;
+    }
+    .header-logo img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .header-brand { flex: 1; min-width: 0; }
+    .header-brand-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: 18px;
+      letter-spacing: 0.3px; color: #221E1D;
+      line-height: 1; white-space: nowrap;
+      overflow: hidden; text-overflow: ellipsis;
+    }
+    .header-brand-sub {
+      font-size: 9px; color: #A8998C;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      margin-top: 3px;
+    }
+    .btn-call-header {
+      background: #A81D22; color: #fff;
+      padding: 9px 18px; border-radius: 2px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.5px; white-space: nowrap;
+      text-transform: uppercase; flex-shrink: 0;
+    }
+
+    /* HERO */
+    .hero {
+      background: #A81D22; color: #fff;
+      text-align: center;
+      padding: clamp(44px, 8vw, 76px) 24px clamp(48px, 8vw, 80px);
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.08), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; max-width: 620px; margin: 0 auto; }
+    .hero-emblem {
+      width: 92px; height: 92px;
+      border-radius: 50%; background: #fff;
+      padding: 6px; margin: 0 auto 26px;
+      box-shadow: 0 6px 26px rgba(0,0,0,0.28);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .hero-emblem img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+    .hero-location { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; opacity: 0.72; margin-bottom: 14px; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(42px, 9vw, 66px);
+      line-height: 1; letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+    .hero-sub { font-size: clamp(11px, 2.5vw, 13px); letter-spacing: 5px; text-transform: uppercase; opacity: 0.85; }
+    .hero-divider { width: 46px; height: 1px; background: rgba(255,255,255,0.5); margin: 26px auto; }
+    .hero-stars { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; font-size: 13px; }
+    .hero-stars .stars { color: #E9C46A; letter-spacing: 2px; font-size: 14px; }
+    .hero-address { font-size: 13px; opacity: 0.78; margin-top: 16px; line-height: 1.7; }
+
+    /* CTA BAR */
+    .cta-bar {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      padding: clamp(16px, 3vw, 22px) clamp(16px, 4vw, 36px);
+      background: #fff; border-bottom: 1px solid #ECE5DF;
+    }
+    .cta-btn {
+      flex: 1; min-width: 150px; text-align: center;
+      padding: 15px 14px; border-radius: 2px;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 1.8px; text-transform: uppercase;
+    }
+    .cta-btn-primary { background: #A81D22; color: #fff; }
+    .cta-btn-secondary { background: #fff; color: #221E1D; border: 1px solid #D9CFC6; }
+
+    /* SERVIZI */
+    .servizi {
+      display: flex; flex-wrap: wrap;
+      background: #FBF8F4; border-bottom: 1px solid #ECE5DF;
+    }
+    .servizio {
+      flex: 1; min-width: 120px;
+      text-align: center; padding: 18px 12px;
+    }
+    .servizio-label {
+      font-size: 9px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #A81D22;
+      font-weight: 700; margin-bottom: 5px;
+    }
+    .servizio-val { font-size: 12px; color: #8A7F75; }
+    .servizi-divider { width: 1px; background: #ECE5DF; margin: 14px 0; }
+
+    /* MENU */
+    .menu-header { text-align: center; padding: clamp(34px, 6vw, 54px) 24px 22px; }
+    .section-label {
+      font-size: 10px; letter-spacing: 4px;
+      text-transform: uppercase; color: #A81D22;
+      font-weight: 700; margin-bottom: 12px;
+    }
+    .menu-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700; font-size: clamp(28px, 5vw, 40px);
+      color: #221E1D; line-height: 1.1;
+    }
+
+    /* TABS */
+    .tabs {
+      position: sticky; top: 67px; z-index: 90;
+      display: flex; flex-wrap: wrap;
+      justify-content: center;
+      gap: clamp(16px, 5vw, 38px);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(6px);
+      border-top: 1px solid #ECE5DF;
+      border-bottom: 1px solid #ECE5DF;
+    }
+    .tab-btn {
+      flex: 0 0 auto;
+      padding: 16px 2px;
+      background: transparent; border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      font-size: 12px; font-weight: 700;
+      letter-spacing: 1.6px; text-transform: uppercase;
+      color: #B0A498;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .tab-btn.active { color: #A81D22; border-bottom-color: #A81D22; }
+
+    /* MENU PANELS */
+    .menu-panel { display: none; padding: 0 clamp(16px, 4vw, 40px); }
+    .menu-panel.active { display: block; }
+
+    .menu-note {
+      text-align: center; font-size: 11px;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: #B0A498; padding: 22px 0 6px;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      column-gap: 48px;
+    }
+    .menu-item {
+      display: flex; gap: 16px; align-items: baseline;
+      padding: 13px 0; border-bottom: 1px solid #F0EAE4;
+    }
+    .menu-item-info { flex: 1; min-width: 0; }
+    .menu-item-name {
+      font-weight: 700; font-size: 13px;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      color: #221E1D; line-height: 1.3;
+    }
+    .menu-item-ing {
+      font-size: 11.5px; color: #A2978C;
+      margin-top: 4px; line-height: 1.5;
+    }
+    .menu-item-price {
+      flex-shrink: 0; display: flex; gap: 7px;
+      align-items: baseline;
+      font-family: 'Playfair Display', serif;
+    }
+    .price-r { font-size: 17px; font-weight: 700; color: #A81D22; }
+    .price-sep { color: #DCD2C8; font-size: 13px; }
+    .price-t { font-size: 14px; color: #A2978C; }
+    .menu-footnote {
+      font-size: 11px; color: #B0A498; font-style: italic;
+      line-height: 1.6; padding: 18px 0 6px;
+    }
+
+    /* PIADINE */
+    .piadine-header {
+      font-family: 'Playfair Display', serif;
+      text-align: center; padding: 24px 0 10px;
+    }
+    .piadine-price { font-size: 26px; font-weight: 700; color: #A81D22; }
+    .piadine-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      column-gap: 48px;
+    }
+    .piadina-item {
+      display: flex; gap: 14px; align-items: baseline;
+      padding: 13px 0; border-bottom: 1px solid #F0EAE4;
+    }
+    .piadina-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px; color: #C9B79E;
+      font-weight: 600; flex-shrink: 0; width: 22px;
+    }
+    .piadina-name {
+      flex: 1; font-size: 13px;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      color: #2D2925; line-height: 1.45;
+    }
+
+    /* BIBITE */
+    .bibite-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      column-gap: 48px; padding-top: 24px;
+    }
+    .bibita-item {
+      display: flex; gap: 16px; align-items: baseline;
+      padding: 13px 0; border-bottom: 1px solid #F0EAE4;
+    }
+    .bibita-name {
+      flex: 1; font-size: 13px;
+      letter-spacing: 0.5px; text-transform: uppercase;
+      color: #2D2925; line-height: 1.45;
+    }
+    .bibita-price {
+      flex-shrink: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 16px; font-weight: 700; color: #A81D22;
+    }
+
+    /* INFO BOX */
+    .info-box {
+      margin: 26px auto 6px; max-width: 540px;
+      text-align: center; padding: 20px;
+      background: #FBF8F4; border: 1px solid #ECE5DF;
+    }
+    .info-box-label {
+      font-size: 9px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #A81D22;
+      font-weight: 700; margin-bottom: 8px;
+    }
+    .info-box-text { font-size: 12px; color: #8A7F75; line-height: 1.8; }
+
+    /* ALLERGENI */
+    .allergeni-section {
+      padding: clamp(34px, 5vw, 48px) clamp(16px, 4vw, 40px);
+      background: #FBF8F4; border-top: 1px solid #ECE5DF;
+      margin-top: 34px;
+    }
+    .allergeni-header { text-align: center; margin-bottom: 22px; }
+    .allergeni-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(22px, 4vw, 28px); color: #221E1D;
+    }
+    .allergeni-desc {
+      font-size: 12px; color: #9A8F85; margin-top: 8px;
+      max-width: 460px; margin-left: auto; margin-right: auto;
+      line-height: 1.6;
+    }
+    .allergeni-list {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      justify-content: center; max-width: 760px;
+      margin: 0 auto;
+    }
+    .allergene-tag {
+      display: inline-flex; align-items: baseline; gap: 7px;
+      background: #fff; border: 1px solid #E7DED5;
+      border-radius: 2px; padding: 8px 14px;
+    }
+    .allergene-n {
+      font-family: 'Playfair Display', serif;
+      font-size: 12px; font-weight: 700; color: #A81D22;
+    }
+    .allergene-name { font-size: 12px; color: #6E655C; }
+
+    /* GALLERIA */
+    .galleria-section {
+      padding: clamp(34px, 5vw, 54px) clamp(16px, 4vw, 40px);
+      background: #fff;
+    }
+    .galleria-header { text-align: center; margin-bottom: 24px; }
+    .galleria-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 4.5vw, 34px); color: #221E1D;
+    }
+    .galleria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .galleria-cell {
+      aspect-ratio: 1;
+      overflow: hidden; border-radius: 2px;
+      background: #F0EAE4;
+    }
+    .galleria-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .galleria-placeholder {
+      aspect-ratio: 1;
+      background: repeating-linear-gradient(45deg, #ECE4DC, #ECE4DC 6px, #F5F0EA 6px, #F5F0EA 12px);
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 2px;
+    }
+    .galleria-placeholder span {
+      font-family: monospace; font-size: 10px;
+      color: #C0B4A6; letter-spacing: 1px;
+    }
+    .galleria-note {
+      font-size: 11px; color: #C0B4A6;
+      margin-top: 14px; font-style: italic; text-align: center;
+    }
+
+    /* CONTATTI */
+    .contatti-section {
+      background: #1B1614; color: #EBE3DA;
+    }
+    .contatti-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+    .contatti-info {
+      padding: clamp(34px, 5vw, 52px) clamp(20px, 4vw, 44px);
+    }
+    .contatti-label {
+      font-size: 10px; letter-spacing: 3px;
+      text-transform: uppercase; color: #E9C46A;
+      font-weight: 700; margin-bottom: 12px;
+    }
+    .contatti-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(26px, 4.5vw, 36px); color: #fff;
+      margin-bottom: 28px;
+    }
+    .contatti-items { display: flex; flex-direction: column; gap: 22px; }
+    .contatti-item-label {
+      font-size: 9px; letter-spacing: 2.5px;
+      text-transform: uppercase; color: #9A8B7C;
+      margin-bottom: 6px;
+    }
+    .contatti-item-val { font-size: 15px; color: #EBE3DA; line-height: 1.6; }
+    .contatti-item-val a { color: #EBE3DA; }
+    .highlight-yellow { color: #E9C46A; }
+    .contatti-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
+    .btn-contatti-primary {
+      background: #A81D22; color: #fff;
+      padding: 13px 24px; border-radius: 2px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.8px; text-transform: uppercase;
+    }
+    .btn-contatti-secondary {
+      background: transparent; color: #fff;
+      padding: 13px 24px; border-radius: 2px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 1.8px; text-transform: uppercase;
+      border: 1px solid rgba(255,255,255,0.35);
+    }
+    .contatti-map {
+      width: 100%; height: 100%; min-height: 300px;
+      border: 0; display: block;
+      filter: grayscale(0.3) saturate(0.85);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #A81D22; color: #fff;
+      padding: clamp(30px, 5vw, 44px) 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      width: 60px; height: 60px;
+      border-radius: 50%; background: #fff;
+      padding: 4px; margin: 0 auto 14px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .footer-logo img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+    .footer-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-weight: 700; margin-bottom: 6px;
+    }
+    .footer-sub {
+      font-size: 9px; letter-spacing: 3px;
+      text-transform: uppercase; opacity: 0.7; margin-bottom: 16px;
+    }
+    .footer-address { font-size: 12px; opacity: 0.68; line-height: 1.9; }
+    .footer-copy {
+      margin-top: 22px; padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.18);
+    }
+    .footer-copy p { font-size: 10px; opacity: 0.45; }
+
+    /* Single-price row for calzoni */
+    .price-single {
+      flex-shrink: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 17px; font-weight: 700; color: #A81D22;
+    }
+  </style>
+</head>
+<body>
+<div class="site-wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-logo">
+      <img src="uploads/pasted-1781764555093-0.png" alt="Il Veliero">
+    </div>
+    <div class="header-brand">
+      <div class="header-brand-name">Il Veliero</div>
+      <div class="header-brand-sub">Pizzeria d'Asporto</div>
+    </div>
+    <a href="tel:3289019456" class="btn-call-header">Chiama</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-emblem">
+        <img src="uploads/pasted-1781764555093-0.png" alt="Il Veliero">
+      </div>
+      <div class="hero-location">Lesmo · Monza e Brianza</div>
+      <h1 class="hero-title">Il Veliero</h1>
+      <div class="hero-sub">Pizzeria d'Asporto</div>
+      <div class="hero-divider"></div>
+      <div class="hero-stars">
+        <span class="stars">★★★★★</span>
+        <span style="font-weight:700;">4,4</span>
+        <span style="opacity:0.6;">·</span>
+        <span style="opacity:0.78;">75 recensioni Google</span>
+      </div>
+      <p class="hero-address">Via Caduti per la Patria, 23 · Peregallo di Lesmo (MB)<br>Tel. 039 688 8118 · 328 901 9456 · Chiuso il lunedì</p>
+    </div>
+  </section>
+
+  <!-- CTA BAR -->
+  <div class="cta-bar">
+    <a href="tel:3289019456" class="cta-btn cta-btn-primary">Chiama per ordinare</a>
+    <a href="https://maps.google.com/?q=Via+Caduti+per+la+Patria+23,+20855+Lesmo+MB" target="_blank" rel="noopener" class="cta-btn cta-btn-secondary">Indicazioni</a>
+    <a href="#menu-section" class="cta-btn cta-btn-secondary">Vedi il menù</a>
+  </div>
+
+  <!-- SERVIZI -->
+  <div class="servizi">
+    <div class="servizio">
+      <div class="servizio-label">Asporto e Domicilio</div>
+      <div class="servizio-val">Consegna a € 1,50</div>
+    </div>
+    <div class="servizi-divider"></div>
+    <div class="servizio">
+      <div class="servizio-label">Aperto</div>
+      <div class="servizio-val">Pranzo e cena · Chiuso lunedì</div>
+    </div>
+    <div class="servizi-divider"></div>
+    <div class="servizio">
+      <div class="servizio-label">Dove</div>
+      <div class="servizio-val">Peregallo di Lesmo</div>
+    </div>
+  </div>
+
+  <!-- MENU -->
+  <section id="menu-section">
+    <div class="menu-header">
+      <div class="section-label">Il Menù</div>
+      <h2 class="menu-title">Le nostre specialità</h2>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" data-tab="pizze" role="tab">Pizze</button>
+      <button class="tab-btn" data-tab="calzoni" role="tab">Calzoni</button>
+      <button class="tab-btn" data-tab="piadine" role="tab">Piadine</button>
+      <button class="tab-btn" data-tab="bibite" role="tab">Bibite</button>
+    </div>
+
+    <!-- PIZZE -->
+    <div id="tab-pizze" class="menu-panel active">
+      <p class="menu-note">Prezzi in € — <span style="color:#A81D22;font-weight:700;">Rotonda</span> / Trancio</p>
+      <div class="menu-grid" id="pizze-grid"></div>
+      <p class="menu-footnote">Verdure alla griglia, asparagi, cipolle e patatine sono prodotti surgelati (all'origine).</p>
+    </div>
+
+    <!-- CALZONI -->
+    <div id="tab-calzoni" class="menu-panel">
+      <p class="menu-note">Tutti i calzoni · prezzo in €</p>
+      <div class="menu-grid" id="calzoni-grid"></div>
+    </div>
+
+    <!-- PIADINE -->
+    <div id="tab-piadine" class="menu-panel">
+      <p class="piadine-header">
+        <span style="font-size:22px;color:#221E1D;">Tutte le piadine a </span><span class="piadine-price">€ 6,00</span>
+      </p>
+      <div class="piadine-grid" id="piadine-grid"></div>
+      <div class="info-box" style="max-width:520px;">
+        <div class="info-box-label">Ingredienti impasto piadine</div>
+        <div class="info-box-text">Farina di grano tenero tipo "00" · Acqua · Sale · Lievito · Olio di oliva</div>
+      </div>
+    </div>
+
+    <!-- BIBITE -->
+    <div id="tab-bibite" class="menu-panel">
+      <div class="bibite-grid" id="bibite-grid"></div>
+      <div class="info-box">
+        <div class="info-box-label">Maxi Pizza</div>
+        <div class="info-box-text">Teglia da 6 tranci, con la possibilità di avere ogni trancio del gusto che preferisci.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALLERGENI -->
+  <section class="allergeni-section">
+    <div class="allergeni-header">
+      <div class="section-label">Informazioni</div>
+      <h3 class="allergeni-title">Allergeni e intolleranze</h3>
+      <p class="allergeni-desc">Per informazioni sugli allergeni presenti nei nostri prodotti, chiedi al personale. Reg. UE 1169/2011.</p>
+    </div>
+    <div class="allergeni-list" id="allergeni-list"></div>
+  </section>
+
+  <!-- GALLERIA -->
+  <section class="galleria-section">
+    <div class="galleria-header">
+      <div class="section-label">Galleria</div>
+      <h2 class="galleria-title">Uno sguardo da noi</h2>
+    </div>
+    <div class="galleria-grid" id="galleria-grid"></div>
+    <p class="galleria-note">Le foto del locale saranno presto disponibili.</p>
+  </section>
+
+  <!-- CONTATTI -->
+  <section class="contatti-section">
+    <div class="contatti-grid">
+      <div class="contatti-info">
+        <div class="contatti-label">Dove siamo</div>
+        <h2 class="contatti-title">Vieni a trovarci</h2>
+        <div class="contatti-items">
+          <div>
+            <div class="contatti-item-label">Indirizzo</div>
+            <div class="contatti-item-val">Via Caduti per la Patria, 23<br>Peregallo di Lesmo (MB)</div>
+          </div>
+          <div>
+            <div class="contatti-item-label">Telefono</div>
+            <div class="contatti-item-val">
+              <a href="tel:0396888118">039 688 8118</a><br>
+              <a href="tel:3289019456">328 901 9456</a>
+            </div>
+          </div>
+          <div>
+            <div class="contatti-item-label">Orari</div>
+            <div class="contatti-item-val">
+              Martedì – Domenica<br>
+              10:30 – 13:30 · 17:30 – 21:00<br>
+              <span class="highlight-yellow">Chiuso il lunedì</span>
+            </div>
+          </div>
+          <div>
+            <div class="contatti-item-label">Consegna a domicilio</div>
+            <div class="contatti-item-val">Disponibile · € 1,50</div>
+          </div>
+          <div class="contatti-btns">
+            <a href="tel:3289019456" class="btn-contatti-primary">Chiama</a>
+            <a href="https://maps.google.com/?q=Via+Caduti+per+la+Patria+23,+20855+Lesmo+MB" target="_blank" rel="noopener" class="btn-contatti-secondary">Indicazioni</a>
+          </div>
+        </div>
+      </div>
+      <iframe
+        src="https://maps.google.com/maps?q=Pizzeria+Il+Veliero,+Via+Caduti+per+la+Patria+23,+Lesmo+MB,+Italy&t=&z=16&ie=UTF8&iwloc=&output=embed"
+        class="contatti-map"
+        loading="lazy"
+        title="Mappa Pizzeria Il Veliero Lesmo"></iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="uploads/pasted-1781764555093-0.png" alt="Il Veliero">
+    </div>
+    <div class="footer-name">Il Veliero</div>
+    <div class="footer-sub">Pizzeria d'Asporto e Domicilio · Lesmo</div>
+    <p class="footer-address">Via Caduti per la Patria, 23 · Peregallo di Lesmo (MB)<br>Tel. 039 688 8118 · 328 901 9456 · Consegna a domicilio € 1,50</p>
+    <div class="footer-copy">
+      <p>© 2024 Pizzeria Il Veliero · Tutti i diritti riservati</p>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+const pizze = [
+  { name: '4 FORMAGGI', ing: 'Pomodoro, mozzarella, emmental, zola, fontina', r: '8,00', t: '6,00' },
+  { name: '4 STAGIONI', ing: 'Pomodoro, mozz, prosciutto, carciofi, funghi, olive', r: '8,00', t: '6,00' },
+  { name: 'AFFUMICATA', ing: 'Pomodoro, mozzarella, provola affumicata, pancetta', r: '8,00', t: '6,00' },
+  { name: 'AMERICANA', ing: 'Pomodoro, mozzarella, tonno, mais, cipolla rossa', r: '8,00', t: '6,00' },
+  { name: 'BIG', ing: 'Pomodoro, mozzarella, carciofi, tonno', r: '7,50', t: '5,50' },
+  { name: 'BISIO', ing: 'Pomodoro, mozz, cotto, provola affumicata, pomodorini', r: '6,50', t: '5,00' },
+  { name: 'BOTTO', ing: 'Pomodoro, mozz, cipolla, acciughe, zola, pancetta', r: '8,00', t: '6,00' },
+  { name: 'BRIANZOLA', ing: 'Pomodoro, mozz, spinaci, ricotta, pomodoro fresco', r: '8,00', t: '5,50' },
+  { name: 'BUFALA', ing: 'Pomodoro, mozzarella di bufala', r: '8,00', t: '5,50' },
+  { name: 'CAPITANO', ing: 'Pomodoro, mozz, pom. fresco, tonno, prezzemolo', r: '7,50', t: '5,00' },
+  { name: 'CAPRICCIOSA', ing: 'Pomodoro, mozz, verdure miste sottaceto', r: '7,50', t: '5,50' },
+  { name: 'CARBONARA', ing: 'Pomodoro, mozzarella, uovo, pancetta, pepe, grana', r: '8,00', t: '6,00' },
+  { name: 'CARLA', ing: 'Pomodoro, mozz, crudo, pomodorini, rucola, grana', r: '7,00', t: '5,00' },
+  { name: 'CHEF', ing: 'Pomodoro, mozz, cotto, friarielli, salsiccia', r: '7,00', t: '5,00' },
+  { name: 'CONTADINA', ing: 'Pomodoro, mozzarella, verdure grigliate, acciughe, olive', r: '8,00', t: '6,00' },
+  { name: 'CROCCANTE', ing: 'Pomodoro, mozz, pancetta, grana, rucola', r: '6,50', t: '4,50' },
+  { name: 'DELICATA', ing: 'Mozzarella, olio, basilico, pomodoro fresco', r: '7,00', t: '4,50' },
+  { name: 'DORIA', ing: 'Pomodoro, mozz, cipolle, acciughe, olive, aglio, basilico', r: '7,50', t: '5,50' },
+  { name: 'ELENA', ing: 'Pomodoro, mozz, zucchine, pomodorini, crudo, ricotta', r: '7,00', t: '5,00' },
+  { name: 'FUORI BORDO', ing: 'Pomodoro, mozz, coppa, fontina, rucola', r: '6,50', t: '4,50' },
+  { name: 'GRANCHIO', ing: 'Pomodoro, mozzarella, polpa di granchio, rucola', r: '8,00', t: '5,50' },
+  { name: 'HEIDI', ing: 'Pomodoro, mozz di bufala, bresaola, grana, rucola', r: '8,00', t: '6,00' },
+  { name: 'IL VELIERO', ing: 'Pomodoro, mozz, insalata di mare', r: '8,00', t: '6,00' },
+  { name: 'INFERNO', ing: 'Pomodoro, mozzarella, salame piccante', r: '7,00', t: '5,00' },
+  { name: 'INSALATONA', ing: 'Pomodoro, mozz, mais, olive verdi, tonno, rucola', r: '6,50', t: '4,50' },
+  { name: 'ITALIA', ing: 'Pomodoro, mozz, pomodoro fresco, ricotta, rucola', r: '7,50', t: '5,00' },
+  { name: 'LIBECCIO', ing: 'Pomodoro, mozzarella, cotto, uovo', r: '6,50', t: '4,50' },
+  { name: 'LUCA', ing: 'Pomodoro, mozz, prosciutto, wurstel, salame piccante', r: '8,00', t: '6,00' },
+  { name: 'LUGANEGA', ing: 'Pomodoro, mozzarella, salsiccia', r: '6,00', t: '4,50' },
+  { name: 'MAESTRALE', ing: 'Pomodoro, mozz, cipolle, olive, origano, pomodorini', r: '6,00', t: '4,00' },
+  { name: 'MARE MONTI', ing: 'Pomodoro, mozzarella, gamberetti, funghi', r: '8,00', t: '6,00' },
+  { name: 'MARGHERITA', ing: 'Pomodoro, mozzarella', r: '5,50', t: '4,00' },
+  { name: 'MARINARA', ing: 'Pomodoro, aglio, olive, origano', r: '5,50', t: '4,00' },
+  { name: 'MERAVIGLIA', ing: 'Pomodoro, mozz, pom. fresco, acciughe, capperi, olive', r: '8,00', t: '6,00' },
+  { name: 'MERIDIONALE', ing: 'Pomodoro, mozzarella, salsiccia, salame, cipolla', r: '8,00', t: '6,00' },
+  { name: 'MONDIAL', ing: 'Pomodoro, mozz, peperoni, cipolle, salame piccante', r: '6,50', t: '5,00' },
+  { name: 'MONTANA', ing: 'Pomodoro, mozzarella, prosciutto, porcini', r: '8,00', t: '6,00' },
+  { name: 'NAPOLI', ing: 'Pomodoro, mozzarella, acciughe, origano', r: '7,00', t: '5,00' },
+  { name: 'OBLÒ', ing: 'Pomodoro, mozzarella, panna, salmone', r: '6,00', t: '5,00' },
+  { name: 'OMAR', ing: 'Pomodoro, mozzarella, speck, zola, peperoni', r: '6,50', t: '5,00' },
+  { name: 'PABLO', ing: 'Pomodoro, mozzarella, provola affumicata, coppa', r: '7,50', t: '5,50' },
+  { name: 'PATATINE', ing: 'Pomodoro, mozzarella, patatine', r: '7,00', t: '5,00' },
+  { name: 'PEPATA', ing: 'Pomodoro, mozz, emmental, pepe, pancetta affumicata', r: '8,00', t: '5,50' },
+  { name: 'PEPERONATA', ing: 'Pomodoro, mozzarella, peperoni grigliati', r: '7,00', t: '5,00' },
+  { name: 'PETER', ing: 'Pomodoro, mozzarella, porcini, zola', r: '8,00', t: '6,00' },
+  { name: 'PRIMAVERA', ing: 'Pomodoro, mozz, olive, pomodorini, capperi, rucola', r: '6,00', t: '4,00' },
+  { name: 'PROSCIUTTO', ing: 'Pomodoro, mozzarella, prosciutto', r: '7,00', t: '5,00' },
+  { name: 'PROSCIUTTO E FUNGHI', ing: 'Pomodoro, mozzarella, prosciutto, funghi', r: '7,50', t: '5,50' },
+  { name: 'PROSCIUTTO E WURSTEL', ing: 'Pomodoro, mozzarella, prosciutto, wurstel', r: '7,50', t: '5,50' },
+  { name: 'PROVOLONE', ing: 'Pomodoro, mozz, provola affumicata, trevisana', r: '7,50', t: '5,50' },
+  { name: 'PRUA', ing: 'Pomodoro, mozz, pom. fresco, cipolla, origano', r: '7,00', t: '5,00' },
+  { name: 'PUGLIESE', ing: 'Pomodoro, mozzarella, olive, cipolla', r: '6,50', t: '5,00' },
+  { name: 'REGINA', ing: 'Pomodoro, mozzarella, rucola, gamberetti', r: '8,00', t: '6,00' },
+  { name: 'ROMA', ing: 'Pomodoro, mozzarella, acciughe, capperi, olive', r: '7,50', t: '5,50' },
+  { name: 'ROMOLO E REMO', ing: 'Pomodoro, mozz, pomodoro fresco, prosciutto crudo', r: '8,00', t: '6,00' },
+  { name: 'ROSA DEI VENTI', ing: 'Pomodoro, mozz di bufala, crudo, grana, rucola', r: '7,00', t: '5,00' },
+  { name: 'SAETTA', ing: 'Pomodoro, mozzarella, salmone, tonno, gamberetti', r: '8,00', t: '6,00' },
+  { name: 'SALMÌ', ing: 'Pomodoro, mozzarella, salmone, olive', r: '8,50', t: '5,50' },
+  { name: 'SALUMIERE', ing: 'Pomodoro, mozz, cotto, crudo, coppa, pancetta', r: '7,00', t: '5,00' },
+  { name: 'SERPE', ing: 'Pomodoro, mozz, zucchine, salami piccanti, carciofi', r: '8,00', t: '6,00' },
+  { name: 'SILURO', ing: 'Pomodoro, mozzarella, asparagi, grana', r: '7,00', t: '5,00' },
+  { name: 'SILVAN', ing: 'Pomodoro, mozz, salsiccia, acciughe, radicchio', r: '7,00', t: '5,00' },
+  { name: 'SOLEADO', ing: 'Pomodoro, mozz, polpa di granchio, zucchine', r: '7,50', t: '5,50' },
+  { name: 'SPECIAL', ing: 'Pomodoro, mozz, zola, salame piccante, cipolla', r: '8,00', t: '6,00' },
+  { name: 'SPECK E ZOLA', ing: 'Pomodoro, mozzarella, speck, zola', r: '7,50', t: '5,50' },
+  { name: 'SPEPERONATA', ing: 'Pomodoro, mozzarella, peperoni, pancetta', r: '6,50', t: '4,50' },
+  { name: 'TIMONE', ing: 'Pomodoro, mozzarella di bufala, prosciutto crudo', r: '8,00', t: '6,00' },
+  { name: 'TIROLESE', ing: 'Pomodoro, mozzarella, speck, wurstel, cipolle', r: '8,00', t: '5,50' },
+  { name: 'TONNO', ing: 'Pomodoro, mozzarella, tonno', r: '6,50', t: '5,00' },
+  { name: 'TRITONE', ing: 'Pomodoro, mozzarella, cipolla, tonno', r: '7,00', t: '5,00' },
+  { name: 'U.S.A.', ing: 'Pomodoro, mozzarella, pancetta, cipolla', r: '7,50', t: '5,50' },
+  { name: 'VALTELLINA', ing: 'Pomodoro, mozzarella, porcini, bresaola', r: '7,50', t: '5,50' },
+  { name: 'VEGETARIANA', ing: 'Pomodoro, mozzarella, verdure grigliate', r: '7,50', t: '5,50' },
+  { name: 'VERDE PRATO', ing: 'Pomodoro, mozzarella, rucola', r: '6,00', t: '4,50' },
+  { name: 'WURSTEL', ing: 'Pomodoro, mozzarella, wurstel', r: '7,00', t: '5,00' },
+];
+
+const calzoni = [
+  { name: 'CALZONE LISCIO', ing: 'Pomodoro, mozzarella, prosciutto cotto', p: '6,00' },
+  { name: 'CALZONE FARCITO', ing: 'Pomodoro, mozz, prosciutto cotto, funghi, carciofi', p: '7,00' },
+  { name: 'CALZONE SALAME PICCANTE', ing: 'Pomodoro, mozzarella, salame piccante', p: '6,00' },
+  { name: 'CALZONE RICOTTA E ZUCCHINE', ing: 'Pomodoro, mozzarella, ricotta, zucchine', p: '6,00' },
+  { name: 'CALZONE VEGETARIANO', ing: 'Pomodoro, mozzarella, zucchine, melanzane, peperoni', p: '7,00' },
+  { name: 'CALZONE 4 FORMAGGI', ing: 'Pomodoro, mozz, zola, emmental, fontina', p: '7,00' },
+];
+
+const piadine = [
+  { n: 1,  name: 'Mozzarella · Speck · Brie' },
+  { n: 2,  name: 'Mozzarella · Prosciutto Cotto' },
+  { n: 3,  name: 'Mozzarella · Prosciutto Crudo' },
+  { n: 4,  name: 'Fontina · Prosciutto Cotto · Rucola' },
+  { n: 5,  name: 'Fontina · Prosciutto Crudo · Rucola' },
+  { n: 6,  name: 'Mozz. · Prosciutto Cotto · Scam. Affumicata' },
+  { n: 7,  name: 'Mozz. · Prosciutto Cotto · Funghi · Rucola' },
+  { n: 8,  name: 'Mozz. · Verdure Grigliate · Funghi · Rucola' },
+  { n: 9,  name: 'Mozz. · Verdure Grigliate · Radicchio' },
+  { n: 10, name: 'Mozzarella · Coppa · Provola Affumicata' },
+  { n: 11, name: 'Mozzarella · Speck · Zola' },
+  { n: 12, name: 'Mozzarella · Salame Piccante · Peperoni' },
+  { n: 13, name: 'Mozzarella · Zucchine · Brie' },
+  { n: 14, name: 'Mozzarella · Melanzane · Grana' },
+  { n: 15, name: 'Mozzarella · Tonno · Pomodorini' },
+];
+
+const bibite = [
+  { name: 'Acqua naturale / frizzante 0,5 L', p: '1,00' },
+  { name: 'Bibita in lattina', p: '1,50' },
+  { name: 'Birra in lattina', p: '1,50' },
+  { name: 'Birra in bottiglia 33 cl', p: '2,50' },
+  { name: 'Birra in bottiglia 66 cl', p: '3,00' },
+  { name: 'Bibita in bottiglia 1 L', p: '2,50' },
+];
+
+const allergeni = [
+  { n: 1,  name: 'Glutine' },
+  { n: 2,  name: 'Crostacei' },
+  { n: 3,  name: 'Uova' },
+  { n: 4,  name: 'Pesce' },
+  { n: 5,  name: 'Arachidi' },
+  { n: 6,  name: 'Soia' },
+  { n: 7,  name: 'Latticini' },
+  { n: 8,  name: 'Frutta a guscio' },
+  { n: 9,  name: 'Sedano' },
+  { n: 10, name: 'Senape' },
+  { n: 11, name: 'Semi di sesamo' },
+  { n: 12, name: 'Anidride solforosa' },
+  { n: 13, name: 'Molluschi' },
+  { n: 14, name: 'Lupini' },
+];
+
+const galleryImages = [
+  'uploads/pasted-1781764516979-0.png',
+  'uploads/pasted-1781764600622-0.png',
+  'uploads/pasted-1781764611990-0.png',
+  'uploads/pasted-1781764622122-0.png',
+  'uploads/pasted-1781764633161-0.png',
+  'uploads/pasted-1781766370748-0.png',
+  'uploads/pasted-1781766384843-0.png',
+  'uploads/pasted-1781766405142-0.png',
+  'uploads/pasted-1781782273924-0.png',
+];
+
+// Render pizze
+const pizzeGrid = document.getElementById('pizze-grid');
+pizze.forEach(p => {
+  pizzeGrid.innerHTML += `
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">${p.name}</div>
+        <div class="menu-item-ing">${p.ing}</div>
+      </div>
+      <div class="menu-item-price">
+        <span class="price-r">${p.r}</span>
+        <span class="price-sep">/</span>
+        <span class="price-t">${p.t}</span>
+      </div>
+    </div>`;
+});
+
+// Render calzoni
+const calzoniGrid = document.getElementById('calzoni-grid');
+calzoni.forEach(c => {
+  calzoniGrid.innerHTML += `
+    <div class="menu-item">
+      <div class="menu-item-info">
+        <div class="menu-item-name">${c.name}</div>
+        <div class="menu-item-ing">${c.ing}</div>
+      </div>
+      <span class="price-single">€ ${c.p}</span>
+    </div>`;
+});
+
+// Render piadine
+const piadineGrid = document.getElementById('piadine-grid');
+piadine.forEach(p => {
+  piadineGrid.innerHTML += `
+    <div class="piadina-item">
+      <span class="piadina-num">${p.n}</span>
+      <span class="piadina-name">${p.name}</span>
+    </div>`;
+});
+
+// Render bibite
+const bibiteGrid = document.getElementById('bibite-grid');
+bibite.forEach(b => {
+  bibiteGrid.innerHTML += `
+    <div class="bibita-item">
+      <span class="bibita-name">${b.name}</span>
+      <span class="bibita-price">€ ${b.p}</span>
+    </div>`;
+});
+
+// Render allergeni
+const allergeniList = document.getElementById('allergeni-list');
+allergeni.forEach(a => {
+  allergeniList.innerHTML += `
+    <div class="allergene-tag">
+      <span class="allergene-n">${a.n}</span>
+      <span class="allergene-name">${a.name}</span>
+    </div>`;
+});
+
+// Render gallery
+const galleryGrid = document.getElementById('galleria-grid');
+galleryImages.forEach(src => {
+  galleryGrid.innerHTML += `<div class="galleria-cell"><img src="${src}" alt="Il Veliero" loading="lazy"></div>`;
+});
+
+// Tabs
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
