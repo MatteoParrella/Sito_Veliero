@@ -4,447 +4,311 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Il Veliero – Pizzeria d'Asporto · Lesmo (MB)</title>
-  <meta name="description" content="Pizzeria Il Veliero a Peregallo di Lesmo (MB). Pizze, calzoni, piadine per asporto e domicilio. Tel. 039 688 8118 · 328 901 9456.">
+  <meta name="description" content="Pizzeria Il Veliero a Peregallo di Lesmo (MB). Pizze, calzoni, piadine per asporto e domicilio. Aperto martedì–domenica. Tel. 039 688 8118 · 328 901 9456.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Il Veliero – Pizzeria d'Asporto · Lesmo (MB)">
+  <meta property="og:description" content="Pizze, calzoni e piadine per asporto e domicilio a Peregallo di Lesmo. 71 gusti di pizza. Consegna € 1,50. Tel. 039 688 8118.">
+  <meta property="og:image" content="uploads/PIZZA.webp">
+  <meta property="og:locale" content="it_IT">
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Il Veliero",
+    "description": "Pizzeria d'asporto e domicilio a Peregallo di Lesmo (MB). 71 gusti di pizza, calzoni, piadine.",
+    "image": "uploads/logo.jpg",
+    "telephone": ["+390396888118", "+393289019456"],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Via Caduti per la Patria, 23",
+      "addressLocality": "Peregallo di Lesmo",
+      "addressRegion": "MB",
+      "postalCode": "20855",
+      "addressCountry": "IT"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.6578,
+      "longitude": 9.3108
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "10:30",
+        "closes": "13:30"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "17:30",
+        "closes": "21:00"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.4",
+      "reviewCount": "75",
+      "bestRating": "5"
+    },
+    "servesCuisine": "Pizza",
+    "priceRange": "€",
+    "hasMap": "https://maps.google.com/?q=Via+Caduti+per+la+Patria+23,+20855+Lesmo+MB"
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
   <style>
+    /* CSS custom properties */
+    :root {
+      --red: #A81D22;
+      --dark: #221E1D;
+      --beige: #ECE5DF;
+      --beige-light: #FBF8F4;
+      --text-muted: #8A7F75;
+      --border: #ECE5DF;
+      --row-border: #F0EAE4;
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #fff; font-family: 'Lato', sans-serif; -webkit-font-smoothing: antialiased; color: #221E1D; }
+    body { background: #fff; font-family: 'Lato', sans-serif; -webkit-font-smoothing: antialiased; color: var(--dark); }
     a { color: inherit; text-decoration: none; }
 
-    .site-wrap {
-      width: 100%;
-      background: #fff;
-      min-height: 100vh;
+    /* Focus visible per accessibilità tastiera */
+    :focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+
+    .site-wrap { width: 100%; background: #fff; min-height: 100vh; }
+
+    /* ── BOTTONI UTILITY ── */
+    .btn-primary {
+      display: inline-block; text-align: center;
+      background: var(--red); color: #fff;
+      border-radius: 2px; font-family: 'Lato', sans-serif;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 1.6px;
+      text-decoration: none; cursor: pointer; border: none;
+    }
+    .btn-outline {
+      display: inline-block; text-align: center;
+      background: transparent; color: var(--dark);
+      border: 1px solid #D9CFC6; border-radius: 2px;
+      font-family: 'Lato', sans-serif; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.6px;
+      text-decoration: none; cursor: pointer;
+    }
+    .btn-outline-light {
+      display: inline-block; text-align: center;
+      background: transparent; color: #fff;
+      border: 1px solid rgba(255,255,255,0.35); border-radius: 2px;
+      font-family: 'Lato', sans-serif; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1.8px;
+      text-decoration: none;
+    }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 7px; text-align: center;
+      background: #25D366; color: #fff;
+      border-radius: 2px; font-family: 'Lato', sans-serif;
+      font-weight: 700; text-transform: uppercase; letter-spacing: 1.4px;
+      text-decoration: none;
     }
 
-    /* HEADER */
+    /* ── HEADER ── */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      position: sticky; top: 0; z-index: 100;
       background: #fff;
-      display: flex;
-      align-items: center;
-      padding: 13px clamp(16px, 4vw, 36px);
-      gap: 14px;
-      border-bottom: 1px solid #ECE5DF;
+      display: flex; align-items: center;
+      padding: 10px clamp(14px, 4vw, 36px); gap: 12px;
+      border-bottom: 1px solid var(--border);
     }
     .header-logo {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      background: #fff;
-      border: 1px solid #E4D9CE;
+      width: 38px; height: 38px; border-radius: 50%;
+      background: #fff; border: 1px solid #E4D9CE;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0; overflow: hidden;
     }
-    .header-logo img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+    .header-logo img { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; }
     .header-brand { flex: 1; min-width: 0; }
     .header-brand-name {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700; font-size: 18px;
-      letter-spacing: 0.3px; color: #221E1D;
-      line-height: 1; white-space: nowrap;
-      overflow: hidden; text-overflow: ellipsis;
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: 17px; letter-spacing: 0.3px; color: var(--dark);
+      line-height: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
     }
     .header-brand-sub {
       font-size: 9px; color: #A8998C;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      margin-top: 3px;
+      letter-spacing: 2.5px; text-transform: uppercase; margin-top: 3px;
     }
-    .btn-call-header {
-      background: #A81D22; color: #fff;
-      padding: 9px 18px; border-radius: 2px;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 1.5px; white-space: nowrap;
-      text-transform: uppercase; flex-shrink: 0;
+    .header-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .header-actions .btn-primary { padding: 8px 14px; font-size: 10px; letter-spacing: 1.3px; }
+    .header-actions .btn-whatsapp { padding: 8px 12px; font-size: 10px; letter-spacing: 1.1px; }
+    @media (max-width: 380px) {
+      .header-actions .btn-whatsapp span.wa-label { display: none; }
     }
 
-    /* HERO */
+    /* ── HERO ── */
     .hero {
-      background: #A81D22; color: #fff;
-      text-align: center;
-      padding: clamp(24px, 5vw, 76px) 24px clamp(28px, 5vw, 80px);
+      background: var(--red); color: #fff; text-align: center;
+      padding: clamp(22px, 5vw, 76px) 24px clamp(26px, 5vw, 80px);
       position: relative; overflow: hidden;
     }
     .hero::before {
-      content: '';
-      position: absolute; inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: radial-gradient(circle at 50% 0%, rgba(255,255,255,0.08), transparent 60%);
       pointer-events: none;
     }
     .hero-inner { position: relative; max-width: 620px; margin: 0 auto; }
     .hero-emblem {
-      width: 72px; height: 72px;
-      border-radius: 50%; background: #fff;
-      padding: 5px; margin: 0 auto 16px;
+      width: 70px; height: 70px; border-radius: 50%; background: #fff;
+      padding: 5px; margin: 0 auto 14px;
       box-shadow: 0 6px 26px rgba(0,0,0,0.28);
       border: 1px solid rgba(255,255,255,0.4);
     }
     .hero-emblem img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-    .hero-location { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.72; margin-bottom: 10px; }
+    .hero-location { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.72; margin-bottom: 8px; }
     .hero-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: clamp(34px, 9vw, 66px);
-      line-height: 1; letter-spacing: 0.5px;
-      margin-bottom: 10px;
+      font-family: 'Playfair Display', serif; font-weight: 700;
+      font-size: clamp(34px, 9vw, 66px); line-height: 1; letter-spacing: 0.5px; margin-bottom: 8px;
     }
     .hero-sub { font-size: clamp(10px, 2.5vw, 13px); letter-spacing: 4px; text-transform: uppercase; opacity: 0.85; }
-    .hero-divider { width: 36px; height: 1px; background: rgba(255,255,255,0.5); margin: 16px auto; }
+    .hero-divider { width: 36px; height: 1px; background: rgba(255,255,255,0.5); margin: 14px auto; }
     .hero-stars { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; font-size: 13px; }
     .hero-stars .stars { color: #E9C46A; letter-spacing: 2px; font-size: 13px; }
-    .hero-address { font-size: 12px; opacity: 0.78; margin-top: 12px; line-height: 1.6; }
+    .hero-address { font-size: 12px; opacity: 0.78; margin-top: 10px; line-height: 1.6; }
 
-    /* CTA BAR */
+    /* ── CTA BAR ── */
     .cta-bar {
-      display: flex; flex-wrap: wrap; gap: 10px;
-      padding: clamp(16px, 3vw, 22px) clamp(16px, 4vw, 36px);
-      background: #fff; border-bottom: 1px solid #ECE5DF;
+      display: flex; flex-wrap: wrap; gap: 8px;
+      padding: clamp(12px, 3vw, 20px) clamp(14px, 4vw, 36px);
+      background: #fff; border-bottom: 1px solid var(--border);
     }
-    .cta-btn {
-      flex: 1; min-width: 150px; text-align: center;
-      padding: 15px 14px; border-radius: 2px;
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 1.8px; text-transform: uppercase;
-    }
-    .cta-btn-primary { background: #A81D22; color: #fff; }
-    .cta-btn-secondary { background: #fff; color: #221E1D; border: 1px solid #D9CFC6; }
-
-    /* SERVIZI */
-    .servizi {
-      display: flex; flex-wrap: wrap;
-      background: #FBF8F4; border-bottom: 1px solid #ECE5DF;
-    }
-    .servizio {
+    .cta-bar a {
       flex: 1; min-width: 120px;
-      text-align: center; padding: 18px 12px;
-    }
-    .servizio-label {
-      font-size: 9px; letter-spacing: 2.5px;
-      text-transform: uppercase; color: #A81D22;
-      font-weight: 700; margin-bottom: 5px;
-    }
-    .servizio-val { font-size: 12px; color: #8A7F75; }
-    .servizi-divider { width: 1px; background: #ECE5DF; margin: 14px 0; }
-
-    /* MENU */
-    .menu-header { text-align: center; padding: clamp(20px, 4vw, 54px) 24px 16px; }
-    .section-label {
-      font-size: 10px; letter-spacing: 4px;
-      text-transform: uppercase; color: #A81D22;
-      font-weight: 700; margin-bottom: 12px;
-    }
-    .menu-title {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700; font-size: clamp(28px, 5vw, 40px);
-      color: #221E1D; line-height: 1.1;
+      padding: 13px 10px; font-size: 11px; letter-spacing: 1.4px;
     }
 
-    /* TABS */
+    /* ── SERVIZI ── */
+    .servizi { display: flex; flex-wrap: wrap; background: var(--beige-light); border-bottom: 1px solid var(--border); }
+    .servizio { flex: 1; min-width: 110px; text-align: center; padding: 12px 8px; }
+    .servizio-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); font-weight: 700; margin-bottom: 4px; }
+    .servizio-val { font-size: 11px; color: var(--text-muted); }
+    .servizi-divider { width: 1px; background: var(--border); margin: 10px 0; }
+
+    /* ── MENU ── */
+    .menu-header { text-align: center; padding: clamp(18px, 4vw, 54px) 24px 14px; }
+    .section-label { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--red); font-weight: 700; margin-bottom: 10px; }
+    .menu-title { font-family: 'Playfair Display', serif; font-weight: 700; font-size: clamp(26px, 5vw, 40px); color: var(--dark); line-height: 1.1; }
+
+    /* ── TABS ── */
     .tabs {
-      position: sticky; top: 67px; z-index: 90;
-      display: flex; flex-wrap: wrap;
-      justify-content: center;
-      gap: clamp(16px, 5vw, 38px);
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(6px);
-      border-top: 1px solid #ECE5DF;
-      border-bottom: 1px solid #ECE5DF;
+      position: sticky; top: 59px; z-index: 90;
+      display: flex; justify-content: center; gap: clamp(14px, 5vw, 38px);
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(6px);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
     }
     .tab-btn {
-      flex: 0 0 auto;
-      padding: 16px 2px;
-      background: transparent; border: none;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      font-family: 'Lato', sans-serif;
-      font-size: 12px; font-weight: 700;
-      letter-spacing: 1.6px; text-transform: uppercase;
-      color: #B0A498;
-      transition: color 0.2s, border-color 0.2s;
+      flex: 0 0 auto; padding: 14px 2px;
+      background: transparent; border: none; border-bottom: 2px solid transparent;
+      cursor: pointer; font-family: 'Lato', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 1.6px; text-transform: uppercase;
+      color: #B0A498; transition: color 0.2s, border-color 0.2s;
     }
-    .tab-btn.active { color: #A81D22; border-bottom-color: #A81D22; }
+    .tab-btn.active { color: var(--red); border-bottom-color: var(--red); }
+    .tab-btn:focus-visible { outline: 2px solid var(--red); outline-offset: -2px; }
 
-    /* MENU PANELS */
-    .menu-panel { display: none; padding: 0 clamp(16px, 4vw, 40px); }
+    /* ── MENU PANELS ── */
+    .menu-panel { display: none; padding: 0 clamp(14px, 4vw, 40px); }
     .menu-panel.active { display: block; }
-
-    .menu-note {
-      text-align: center; font-size: 11px;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      color: #B0A498; padding: 22px 0 6px;
-    }
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-      column-gap: 48px;
-    }
-    .menu-item {
-      display: flex; gap: 12px; align-items: baseline;
-      padding: 9px 0; border-bottom: 1px solid #F0EAE4;
-    }
+    .menu-note { text-align: center; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #B0A498; padding: 14px 0 4px; }
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); column-gap: 48px; }
+    .menu-item { display: flex; gap: 12px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--row-border); }
     .menu-item-info { flex: 1; min-width: 0; }
-    .menu-item-name {
-      font-weight: 700; font-size: 12px;
-      letter-spacing: 0.6px; text-transform: uppercase;
-      color: #221E1D; line-height: 1.3;
-    }
-    .menu-item-ing {
-      font-size: 11px; color: #A2978C;
-      margin-top: 2px; line-height: 1.4;
-    }
-    .menu-item-price {
-      flex-shrink: 0; display: flex; gap: 7px;
-      align-items: baseline;
-      font-family: 'Playfair Display', serif;
-    }
-    .price-r { font-size: 17px; font-weight: 700; color: #A81D22; }
+    .menu-item-name { font-weight: 700; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase; color: var(--dark); line-height: 1.3; }
+    .menu-item-ing { font-size: 11px; color: #A2978C; margin-top: 2px; line-height: 1.4; }
+    .menu-item-price { flex-shrink: 0; display: flex; gap: 6px; align-items: baseline; font-family: 'Playfair Display', serif; }
+    .price-r { font-size: 16px; font-weight: 700; color: var(--red); }
     .price-sep { color: #DCD2C8; font-size: 13px; }
-    .price-t { font-size: 14px; color: #A2978C; }
-    .menu-footnote {
-      font-size: 11px; color: #B0A498; font-style: italic;
-      line-height: 1.6; padding: 18px 0 6px;
-    }
+    .price-t { font-size: 13px; color: #A2978C; }
+    .price-single { flex-shrink: 0; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--red); }
+    .menu-footnote { font-size: 11px; color: #B0A498; font-style: italic; line-height: 1.6; padding: 14px 0 4px; }
 
-    /* PIADINE */
-    .piadine-header {
-      font-family: 'Playfair Display', serif;
-      text-align: center; padding: 24px 0 10px;
-    }
-    .piadine-price { font-size: 26px; font-weight: 700; color: #A81D22; }
-    .piadine-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      column-gap: 48px;
-    }
-    .piadina-item {
-      display: flex; gap: 14px; align-items: baseline;
-      padding: 13px 0; border-bottom: 1px solid #F0EAE4;
-    }
-    .piadina-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 14px; color: #C9B79E;
-      font-weight: 600; flex-shrink: 0; width: 22px;
-    }
-    .piadina-name {
-      flex: 1; font-size: 13px;
-      letter-spacing: 0.5px; text-transform: uppercase;
-      color: #2D2925; line-height: 1.45;
-    }
+    /* ── PIADINE ── */
+    .piadine-header { font-family: 'Playfair Display', serif; text-align: center; padding: 20px 0 10px; }
+    .piadine-price { font-size: 26px; font-weight: 700; color: var(--red); }
+    .piadine-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); column-gap: 48px; }
+    .piadina-item { display: flex; gap: 14px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--row-border); }
+    .piadina-num { font-family: 'Playfair Display', serif; font-size: 13px; color: #C9B79E; font-weight: 600; flex-shrink: 0; width: 20px; }
+    .piadina-name { flex: 1; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; color: #2D2925; line-height: 1.4; }
 
-    /* BIBITE */
-    .bibite-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      column-gap: 48px; padding-top: 24px;
-    }
-    .bibita-item {
-      display: flex; gap: 16px; align-items: baseline;
-      padding: 13px 0; border-bottom: 1px solid #F0EAE4;
-    }
-    .bibita-name {
-      flex: 1; font-size: 13px;
-      letter-spacing: 0.5px; text-transform: uppercase;
-      color: #2D2925; line-height: 1.45;
-    }
-    .bibita-price {
-      flex-shrink: 0;
-      font-family: 'Playfair Display', serif;
-      font-size: 16px; font-weight: 700; color: #A81D22;
-    }
+    /* ── BIBITE ── */
+    .bibite-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); column-gap: 48px; padding-top: 20px; }
+    .bibita-item { display: flex; gap: 16px; align-items: baseline; padding: 9px 0; border-bottom: 1px solid var(--row-border); }
+    .bibita-name { flex: 1; font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; color: #2D2925; line-height: 1.4; }
+    .bibita-price { flex-shrink: 0; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; color: var(--red); }
 
-    /* INFO BOX */
-    .info-box {
-      margin: 26px auto 6px; max-width: 540px;
-      text-align: center; padding: 20px;
-      background: #FBF8F4; border: 1px solid #ECE5DF;
-    }
-    .info-box-label {
-      font-size: 9px; letter-spacing: 2.5px;
-      text-transform: uppercase; color: #A81D22;
-      font-weight: 700; margin-bottom: 8px;
-    }
-    .info-box-text { font-size: 12px; color: #8A7F75; line-height: 1.8; }
+    /* ── INFO BOX ── */
+    .info-box { margin: 22px auto 6px; max-width: 540px; text-align: center; padding: 18px 20px; background: var(--beige-light); border: 1px solid var(--border); }
+    .info-box-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); font-weight: 700; margin-bottom: 7px; }
+    .info-box-text { font-size: 12px; color: var(--text-muted); line-height: 1.8; }
 
-    /* ALLERGENI */
-    .allergeni-section {
-      padding: clamp(34px, 5vw, 48px) clamp(16px, 4vw, 40px);
-      background: #FBF8F4; border-top: 1px solid #ECE5DF;
-      margin-top: 34px;
-    }
-    .allergeni-header { text-align: center; margin-bottom: 22px; }
-    .allergeni-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(22px, 4vw, 28px); color: #221E1D;
-    }
-    .allergeni-desc {
-      font-size: 12px; color: #9A8F85; margin-top: 8px;
-      max-width: 460px; margin-left: auto; margin-right: auto;
-      line-height: 1.6;
-    }
-    .allergeni-list {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      justify-content: center; max-width: 760px;
-      margin: 0 auto;
-    }
-    .allergene-tag {
-      display: inline-flex; align-items: baseline; gap: 7px;
-      background: #fff; border: 1px solid #E7DED5;
-      border-radius: 2px; padding: 8px 14px;
-    }
-    .allergene-n {
-      font-family: 'Playfair Display', serif;
-      font-size: 12px; font-weight: 700; color: #A81D22;
-    }
+    /* ── ALLERGENI ── */
+    .allergeni-section { padding: clamp(24px, 5vw, 48px) clamp(14px, 4vw, 40px); background: var(--beige-light); border-top: 1px solid var(--border); margin-top: 28px; }
+    .allergeni-header { text-align: center; margin-bottom: 18px; }
+    .allergeni-title { font-family: 'Playfair Display', serif; font-size: clamp(20px, 4vw, 28px); color: var(--dark); }
+    .allergeni-desc { font-size: 12px; color: #9A8F85; margin-top: 7px; max-width: 460px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    .allergeni-list { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; max-width: 760px; margin: 0 auto; }
+    .allergene-tag { display: inline-flex; align-items: baseline; gap: 6px; background: #fff; border: 1px solid #E7DED5; border-radius: 2px; padding: 7px 12px; }
+    .allergene-n { font-family: 'Playfair Display', serif; font-size: 12px; font-weight: 700; color: var(--red); }
     .allergene-name { font-size: 12px; color: #6E655C; }
 
-    /* GALLERIA */
-    .galleria-section {
-      padding: clamp(28px, 5vw, 54px) 0;
-      background: #fff;
-    }
-    .galleria-header { text-align: center; margin-bottom: 20px; padding: 0 16px; }
-    .galleria-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(22px, 4.5vw, 34px); color: #221E1D;
-    }
-    /* Mobile: scroll orizzontale */
+    /* ── GALLERIA ── */
+    .galleria-section { padding: clamp(26px, 5vw, 54px) 0; background: #fff; }
+    .galleria-header { text-align: center; margin-bottom: 18px; padding: 0 16px; }
+    .galleria-title { font-family: 'Playfair Display', serif; font-size: clamp(22px, 4.5vw, 34px); color: var(--dark); }
     .galleria-scroll {
-      display: flex;
-      gap: 10px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      padding: 0 16px 12px;
-      scrollbar-width: none;
+      display: flex; gap: 10px; overflow-x: auto;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+      padding: 0 16px 10px; scrollbar-width: none;
     }
     .galleria-scroll::-webkit-scrollbar { display: none; }
-    .galleria-cell {
-      flex: 0 0 72vw;
-      max-width: 280px;
-      aspect-ratio: 1;
-      overflow: hidden; border-radius: 6px;
-      background: #F0EAE4;
-      scroll-snap-align: start;
-    }
+    .galleria-cell { flex: 0 0 72vw; max-width: 260px; aspect-ratio: 1; overflow: hidden; border-radius: 6px; background: #F0EAE4; scroll-snap-align: start; }
     .galleria-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    /* Desktop: griglia */
     @media (min-width: 640px) {
       .galleria-section { padding: clamp(34px, 5vw, 54px) clamp(16px, 4vw, 40px); }
-      .galleria-scroll {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        overflow-x: visible;
-        padding: 0;
-        scrollbar-width: auto;
-      }
-      .galleria-cell {
-        flex: unset;
-        max-width: unset;
-        border-radius: 4px;
-      }
+      .galleria-scroll { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); overflow-x: visible; padding: 0; }
+      .galleria-cell { flex: unset; max-width: unset; border-radius: 4px; }
     }
 
-    /* CONTATTI */
-    .contatti-section {
-      background: #1B1614; color: #EBE3DA;
-    }
-    .contatti-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    }
-    .contatti-info {
-      padding: clamp(34px, 5vw, 52px) clamp(20px, 4vw, 44px);
-    }
-    .contatti-label {
-      font-size: 10px; letter-spacing: 3px;
-      text-transform: uppercase; color: #E9C46A;
-      font-weight: 700; margin-bottom: 12px;
-    }
-    .contatti-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(26px, 4.5vw, 36px); color: #fff;
-      margin-bottom: 28px;
-    }
-    .contatti-items { display: flex; flex-direction: column; gap: 22px; }
-    .contatti-item-label {
-      font-size: 9px; letter-spacing: 2.5px;
-      text-transform: uppercase; color: #9A8B7C;
-      margin-bottom: 6px;
-    }
-    .contatti-item-val { font-size: 15px; color: #EBE3DA; line-height: 1.6; }
-    .contatti-item-val a { color: #EBE3DA; }
+    /* ── CONTATTI ── */
+    .contatti-section { background: #1B1614; color: #EBE3DA; }
+    .contatti-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .contatti-info { padding: clamp(28px, 5vw, 52px) clamp(18px, 4vw, 44px); }
+    .contatti-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: #E9C46A; font-weight: 700; margin-bottom: 10px; }
+    .contatti-title { font-family: 'Playfair Display', serif; font-size: clamp(24px, 4.5vw, 36px); color: #fff; margin-bottom: 24px; }
+    .contatti-items { display: flex; flex-direction: column; gap: 18px; }
+    .contatti-item-label { font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: #9A8B7C; margin-bottom: 5px; }
+    .contatti-item-val { font-size: 14px; color: #EBE3DA; line-height: 1.6; }
+    .contatti-item-val a { color: #EBE3DA; text-decoration: underline; text-underline-offset: 3px; }
     .highlight-yellow { color: #E9C46A; }
-    .contatti-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
-    .btn-contatti-primary {
-      background: #A81D22; color: #fff;
-      padding: 13px 24px; border-radius: 2px;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 1.8px; text-transform: uppercase;
-    }
-    .btn-contatti-secondary {
-      background: transparent; color: #fff;
-      padding: 13px 24px; border-radius: 2px;
-      font-size: 11px; font-weight: 700;
-      letter-spacing: 1.8px; text-transform: uppercase;
-      border: 1px solid rgba(255,255,255,0.35);
-    }
-    .contatti-map {
-      width: 100%; height: 100%; min-height: 300px;
-      border: 0; display: block;
-      filter: grayscale(0.3) saturate(0.85);
-    }
+    .contatti-btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+    .contatti-btns .btn-primary { padding: 12px 22px; font-size: 11px; }
+    .contatti-btns .btn-outline-light { padding: 12px 22px; font-size: 11px; }
+    .contatti-btns .btn-whatsapp { padding: 12px 18px; font-size: 11px; }
+    .contatti-map { width: 100%; height: 100%; min-height: 260px; border: 0; display: block; filter: grayscale(0.3) saturate(0.85); }
 
-    /* FOOTER */
-    footer {
-      background: #A81D22; color: #fff;
-      padding: clamp(30px, 5vw, 44px) 24px;
-      text-align: center;
-    }
-    .footer-logo {
-      width: 60px; height: 60px;
-      border-radius: 50%; background: #fff;
-      padding: 4px; margin: 0 auto 14px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-    }
+    /* ── FOOTER ── */
+    footer { background: var(--red); color: #fff; padding: clamp(26px, 5vw, 44px) 24px; text-align: center; }
+    .footer-logo { width: 56px; height: 56px; border-radius: 50%; background: #fff; padding: 4px; margin: 0 auto 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.2); }
     .footer-logo img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
-    .footer-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px; font-weight: 700; margin-bottom: 6px;
-    }
-    .footer-sub {
-      font-size: 9px; letter-spacing: 3px;
-      text-transform: uppercase; opacity: 0.7; margin-bottom: 16px;
-    }
+    .footer-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 5px; }
+    .footer-sub { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7; margin-bottom: 14px; }
     .footer-address { font-size: 12px; opacity: 0.68; line-height: 1.9; }
-    .footer-copy {
-      margin-top: 22px; padding-top: 18px;
-      border-top: 1px solid rgba(255,255,255,0.18);
-    }
+    .footer-copy { margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.18); }
     .footer-copy p { font-size: 10px; opacity: 0.45; }
-
-    /* Mobile compactness */
-    @media (max-width: 639px) {
-      .cta-bar { gap: 8px; padding: 12px 16px; }
-      .cta-btn { padding: 12px 10px; font-size: 11px; letter-spacing: 1.2px; }
-      .servizio { padding: 12px 8px; }
-      .allergeni-section { padding: 24px 16px; margin-top: 20px; }
-      .piadina-item { padding: 9px 0; }
-      .bibita-item { padding: 9px 0; }
-      .menu-panel { padding: 0 14px; }
-      .menu-note { padding: 14px 0 4px; }
-      .contatti-info { padding: 28px 20px; }
-      .contatti-items { gap: 16px; }
-      footer { padding: 28px 16px; }
-    }
-
-    /* Single-price row for calzoni */
-    .price-single {
-      flex-shrink: 0;
-      font-family: 'Playfair Display', serif;
-      font-size: 17px; font-weight: 700; color: #A81D22;
-    }
   </style>
 </head>
 <body>
@@ -453,29 +317,35 @@
   <!-- HEADER -->
   <header>
     <div class="header-logo">
-      <img src="uploads/logo.jpg" alt="Il Veliero">
+      <img src="uploads/logo.jpg" alt="Logo Il Veliero" width="34" height="34">
     </div>
     <div class="header-brand">
       <div class="header-brand-name">Il Veliero</div>
       <div class="header-brand-sub">Pizzeria d'Asporto</div>
     </div>
-    <a href="tel:3289019456" class="btn-call-header">Chiama</a>
+    <div class="header-actions">
+      <a href="https://wa.me/393289019456" class="btn-whatsapp" aria-label="Ordina su WhatsApp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.552 4.116 1.516 5.847L.057 23.882a.5.5 0 0 0 .604.634l6.2-1.427A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.519-5.223-1.423l-.374-.222-3.88.892.938-3.768-.245-.389A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        <span class="wa-label">WhatsApp</span>
+      </a>
+      <a href="tel:3289019456" class="btn-primary" aria-label="Chiama Il Veliero">Chiama</a>
+    </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero" aria-label="Benvenuto">
     <div class="hero-inner">
       <div class="hero-emblem">
-        <img src="uploads/logo.jpg" alt="Il Veliero">
+        <img src="uploads/logo.jpg" alt="Il Veliero logo" width="60" height="60">
       </div>
       <div class="hero-location">Lesmo · Monza e Brianza</div>
       <h1 class="hero-title">Il Veliero</h1>
       <div class="hero-sub">Pizzeria d'Asporto</div>
       <div class="hero-divider"></div>
-      <div class="hero-stars">
-        <span class="stars">★★★★★</span>
+      <div class="hero-stars" aria-label="4,4 stelle su 5 — 75 recensioni Google">
+        <span class="stars" aria-hidden="true">★★★★★</span>
         <span style="font-weight:700;">4,4</span>
-        <span style="opacity:0.6;">·</span>
+        <span style="opacity:0.6;" aria-hidden="true">·</span>
         <span style="opacity:0.78;">75 recensioni Google</span>
       </div>
       <p class="hero-address">Via Caduti per la Patria, 23 · Peregallo di Lesmo (MB)<br>Tel. 039 688 8118 · 328 901 9456 · Chiuso il lunedì</p>
@@ -483,62 +353,63 @@
   </section>
 
   <!-- CTA BAR -->
-  <div class="cta-bar">
-    <a href="tel:3289019456" class="cta-btn cta-btn-primary">Chiama per ordinare</a>
-    <a href="https://maps.google.com/?q=Via+Caduti+per+la+Patria+23,+20855+Lesmo+MB" target="_blank" rel="noopener" class="cta-btn cta-btn-secondary">Indicazioni</a>
-    <a href="#menu-section" class="cta-btn cta-btn-secondary">Vedi il menù</a>
+  <div class="cta-bar" role="group" aria-label="Azioni principali">
+    <a href="tel:3289019456" class="btn-primary cta-bar">Chiama per ordinare</a>
+    <a href="https://wa.me/393289019456" class="btn-whatsapp cta-bar" style="justify-content:center;">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.552 4.116 1.516 5.847L.057 23.882a.5.5 0 0 0 .604.634l6.2-1.427A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.519-5.223-1.423l-.374-.222-3.88.892.938-3.768-.245-.389A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      WhatsApp
+    </a>
+    <a href="https://maps.google.com/?q=Via+Caduti+per+la+Patria+23,+20855+Lesmo+MB" target="_blank" rel="noopener noreferrer" class="btn-outline cta-bar">Indicazioni</a>
+    <a href="#menu-section" class="btn-outline cta-bar">Vedi il menù</a>
   </div>
 
   <!-- SERVIZI -->
-  <div class="servizi">
-    <div class="servizio">
+  <div class="servizi" role="list" aria-label="Servizi">
+    <div class="servizio" role="listitem">
       <div class="servizio-label">Asporto e Domicilio</div>
       <div class="servizio-val">Consegna a € 1,50</div>
     </div>
-    <div class="servizi-divider"></div>
-    <div class="servizio">
+    <div class="servizi-divider" aria-hidden="true"></div>
+    <div class="servizio" role="listitem">
       <div class="servizio-label">Aperto</div>
-      <div class="servizio-val">Pranzo e cena · Chiuso lunedì</div>
+      <div class="servizio-val">Mar–Dom · Chiuso lunedì</div>
     </div>
-    <div class="servizi-divider"></div>
-    <div class="servizio">
+    <div class="servizi-divider" aria-hidden="true"></div>
+    <div class="servizio" role="listitem">
       <div class="servizio-label">Dove</div>
       <div class="servizio-val">Peregallo di Lesmo</div>
     </div>
   </div>
 
   <!-- MENU -->
-  <section id="menu-section">
+  <section id="menu-section" aria-label="Menù">
     <div class="menu-header">
-      <div class="section-label">Il Menù</div>
+      <div class="section-label" aria-hidden="true">Il Menù</div>
       <h2 class="menu-title">Le nostre specialità</h2>
     </div>
 
     <!-- TABS -->
-    <div class="tabs" role="tablist">
-      <button class="tab-btn active" data-tab="pizze" role="tab">Pizze</button>
-      <button class="tab-btn" data-tab="calzoni" role="tab">Calzoni</button>
-      <button class="tab-btn" data-tab="piadine" role="tab">Piadine</button>
-      <button class="tab-btn" data-tab="bibite" role="tab">Bibite</button>
+    <div class="tabs" role="tablist" aria-label="Categorie menù">
+      <button class="tab-btn active" data-tab="pizze" role="tab" aria-selected="true" aria-controls="tab-pizze">Pizze</button>
+      <button class="tab-btn" data-tab="calzoni" role="tab" aria-selected="false" aria-controls="tab-calzoni">Calzoni</button>
+      <button class="tab-btn" data-tab="piadine" role="tab" aria-selected="false" aria-controls="tab-piadine">Piadine</button>
+      <button class="tab-btn" data-tab="bibite" role="tab" aria-selected="false" aria-controls="tab-bibite">Bibite</button>
     </div>
 
-    <!-- PIZZE -->
-    <div id="tab-pizze" class="menu-panel active">
-      <p class="menu-note">Prezzi in € — <span style="color:#A81D22;font-weight:700;">Rotonda</span> / Trancio</p>
+    <div id="tab-pizze" class="menu-panel active" role="tabpanel">
+      <p class="menu-note">Prezzi in € — <span style="color:var(--red);font-weight:700;">Rotonda</span> / Trancio</p>
       <div class="menu-grid" id="pizze-grid"></div>
       <p class="menu-footnote">Verdure alla griglia, asparagi, cipolle e patatine sono prodotti surgelati (all'origine).</p>
     </div>
 
-    <!-- CALZONI -->
-    <div id="tab-calzoni" class="menu-panel">
+    <div id="tab-calzoni" class="menu-panel" role="tabpanel">
       <p class="menu-note">Tutti i calzoni · prezzo in €</p>
       <div class="menu-grid" id="calzoni-grid"></div>
     </div>
 
-    <!-- PIADINE -->
-    <div id="tab-piadine" class="menu-panel">
+    <div id="tab-piadine" class="menu-panel" role="tabpanel">
       <p class="piadine-header">
-        <span style="font-size:22px;color:#221E1D;">Tutte le piadine a </span><span class="piadine-price">€ 6,00</span>
+        <span style="font-size:22px;color:var(--dark);">Tutte le piadine a </span><span class="piadine-price">€ 6,00</span>
       </p>
       <div class="piadine-grid" id="piadine-grid"></div>
       <div class="info-box" style="max-width:520px;">
@@ -547,40 +418,39 @@
       </div>
     </div>
 
-    <!-- BIBITE -->
-    <div id="tab-bibite" class="menu-panel">
+    <div id="tab-bibite" class="menu-panel" role="tabpanel">
       <div class="bibite-grid" id="bibite-grid"></div>
       <div class="info-box">
         <div class="info-box-label">Maxi Pizza</div>
-        <div class="info-box-text">Teglia da 6 tranci, con la possibilità di avere ogni trancio del gusto che preferisci.</div>
+        <div class="info-box-text">Teglia da 6 tranci — ogni trancio del gusto che preferisci.</div>
       </div>
     </div>
   </section>
 
   <!-- ALLERGENI -->
-  <section class="allergeni-section">
+  <section class="allergeni-section" aria-label="Allergeni e intolleranze">
     <div class="allergeni-header">
-      <div class="section-label">Informazioni</div>
+      <div class="section-label" aria-hidden="true">Informazioni</div>
       <h3 class="allergeni-title">Allergeni e intolleranze</h3>
       <p class="allergeni-desc">Per informazioni sugli allergeni presenti nei nostri prodotti, chiedi al personale. Reg. UE 1169/2011.</p>
     </div>
-    <div class="allergeni-list" id="allergeni-list"></div>
+    <div class="allergeni-list" id="allergeni-list" role="list"></div>
   </section>
 
   <!-- GALLERIA -->
-  <section class="galleria-section">
+  <section class="galleria-section" aria-label="Galleria fotografica">
     <div class="galleria-header">
-      <div class="section-label">Galleria</div>
+      <div class="section-label" aria-hidden="true">Galleria</div>
       <h2 class="galleria-title">Uno sguardo da noi</h2>
     </div>
-    <div class="galleria-scroll" id="galleria-grid"></div>
+    <div class="galleria-scroll" id="galleria-grid" role="list"></div>
   </section>
 
   <!-- CONTATTI -->
-  <section class="contatti-section">
+  <section class="contatti-section" aria-label="Contatti e dove siamo">
     <div class="contatti-grid">
       <div class="contatti-info">
-        <div class="contatti-label">Dove siamo</div>
+        <div class="contatti-label" aria-hidden="true">Dove siamo</div>
         <h2 class="contatti-title">Vieni a trovarci</h2>
         <div class="contatti-items">
           <div>
@@ -607,29 +477,33 @@
             <div class="contatti-item-val">Disponibile · € 1,50</div>
           </div>
           <div class="contatti-btns">
-            <a href="tel:3289019456" class="btn-contatti-primary">Chiama</a>
-            <a href="https://maps.google.com/?q=Via+Caduti+per+la+Patria+23,+20855+Lesmo+MB" target="_blank" rel="noopener" class="btn-contatti-secondary">Indicazioni</a>
+            <a href="tel:3289019456" class="btn-primary">Chiama</a>
+            <a href="https://wa.me/393289019456" class="btn-whatsapp">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.552 4.116 1.516 5.847L.057 23.882a.5.5 0 0 0 .604.634l6.2-1.427A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.907 0-3.693-.519-5.223-1.423l-.374-.222-3.88.892.938-3.768-.245-.389A9.956 9.956 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              WhatsApp
+            </a>
+            <a href="https://maps.google.com/?q=Via+Caduti+per+la+Patria+23,+20855+Lesmo+MB" target="_blank" rel="noopener noreferrer" class="btn-outline-light">Indicazioni</a>
           </div>
         </div>
       </div>
       <iframe
         src="https://maps.google.com/maps?q=Pizzeria+Il+Veliero,+Via+Caduti+per+la+Patria+23,+Lesmo+MB,+Italy&t=&z=16&ie=UTF8&iwloc=&output=embed"
-        class="contatti-map"
-        loading="lazy"
-        title="Mappa Pizzeria Il Veliero Lesmo"></iframe>
+        class="contatti-map" loading="lazy"
+        title="Mappa Pizzeria Il Veliero — Via Caduti per la Patria 23, Lesmo MB"
+        aria-label="Mappa posizione Pizzeria Il Veliero"></iframe>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
-      <img src="uploads/logo.jpg" alt="Il Veliero">
+      <img src="uploads/logo.jpg" alt="Il Veliero" width="48" height="48">
     </div>
     <div class="footer-name">Il Veliero</div>
     <div class="footer-sub">Pizzeria d'Asporto e Domicilio · Lesmo</div>
     <p class="footer-address">Via Caduti per la Patria, 23 · Peregallo di Lesmo (MB)<br>Tel. 039 688 8118 · 328 901 9456 · Consegna a domicilio € 1,50</p>
     <div class="footer-copy">
-      <p>© 2024 Pizzeria Il Veliero · Tutti i diritti riservati</p>
+      <p>© 2025 Pizzeria Il Veliero · Tutti i diritti riservati</p>
     </div>
   </footer>
 
@@ -751,113 +625,98 @@ const bibite = [
 ];
 
 const allergeni = [
-  { n: 1,  name: 'Glutine' },
-  { n: 2,  name: 'Crostacei' },
-  { n: 3,  name: 'Uova' },
-  { n: 4,  name: 'Pesce' },
-  { n: 5,  name: 'Arachidi' },
-  { n: 6,  name: 'Soia' },
-  { n: 7,  name: 'Latticini' },
-  { n: 8,  name: 'Frutta a guscio' },
-  { n: 9,  name: 'Sedano' },
-  { n: 10, name: 'Senape' },
-  { n: 11, name: 'Semi di sesamo' },
-  { n: 12, name: 'Anidride solforosa' },
-  { n: 13, name: 'Molluschi' },
-  { n: 14, name: 'Lupini' },
+  { n: 1,  name: 'Glutine' }, { n: 2,  name: 'Crostacei' },
+  { n: 3,  name: 'Uova' },    { n: 4,  name: 'Pesce' },
+  { n: 5,  name: 'Arachidi' },{ n: 6,  name: 'Soia' },
+  { n: 7,  name: 'Latticini' },{ n: 8, name: 'Frutta a guscio' },
+  { n: 9,  name: 'Sedano' },  { n: 10, name: 'Senape' },
+  { n: 11, name: 'Semi di sesamo' }, { n: 12, name: 'Anidride solforosa' },
+  { n: 13, name: 'Molluschi' },{ n: 14, name: 'Lupini' },
 ];
 
 const galleryImages = [
-  'uploads/POSTO.webp',
-  'uploads/PIZZA.webp',
-  'uploads/TRANCIO.webp',
-  'uploads/trancio2.webp',
-  'uploads/TANTITRANCI.webp',
-  'uploads/normo.webp',
+  { src: 'uploads/POSTO.webp',       alt: 'Il locale — Pizzeria Il Veliero a Lesmo' },
+  { src: 'uploads/PIZZA.webp',       alt: 'Pizza fresca al forno' },
+  { src: 'uploads/TRANCIO.webp',     alt: 'Trancio di pizza con prosciutto crudo' },
+  { src: 'uploads/trancio2.webp',    alt: 'Trancio di pizza con mozzarella e pomodorini' },
+  { src: 'uploads/TANTITRANCI.webp', alt: 'Teglia Maxi Pizza con tanti tranci' },
+  { src: 'uploads/normo.webp',       alt: 'Pizza rotonda con prosciutto crudo e rucola' },
 ];
 
-// Render pizze
-const pizzeGrid = document.getElementById('pizze-grid');
-pizze.forEach(p => {
-  pizzeGrid.innerHTML += `
-    <div class="menu-item">
-      <div class="menu-item-info">
-        <div class="menu-item-name">${p.name}</div>
-        <div class="menu-item-ing">${p.ing}</div>
-      </div>
-      <div class="menu-item-price">
-        <span class="price-r">${p.r}</span>
-        <span class="price-sep">/</span>
-        <span class="price-t">${p.t}</span>
-      </div>
-    </div>`;
-});
+/* ── Render: build full HTML string, insert once ── */
+document.getElementById('pizze-grid').innerHTML = pizze.map(p => `
+  <div class="menu-item">
+    <div class="menu-item-info">
+      <div class="menu-item-name">${p.name}</div>
+      <div class="menu-item-ing">${p.ing}</div>
+    </div>
+    <div class="menu-item-price">
+      <span class="price-r">${p.r}</span>
+      <span class="price-sep" aria-hidden="true">/</span>
+      <span class="price-t">${p.t}</span>
+    </div>
+  </div>`).join('');
 
-// Render calzoni
-const calzoniGrid = document.getElementById('calzoni-grid');
-calzoni.forEach(c => {
-  calzoniGrid.innerHTML += `
-    <div class="menu-item">
-      <div class="menu-item-info">
-        <div class="menu-item-name">${c.name}</div>
-        <div class="menu-item-ing">${c.ing}</div>
-      </div>
-      <span class="price-single">€ ${c.p}</span>
-    </div>`;
-});
+document.getElementById('calzoni-grid').innerHTML = calzoni.map(c => `
+  <div class="menu-item">
+    <div class="menu-item-info">
+      <div class="menu-item-name">${c.name}</div>
+      <div class="menu-item-ing">${c.ing}</div>
+    </div>
+    <span class="price-single">€ ${c.p}</span>
+  </div>`).join('');
 
-// Render piadine
-const piadineGrid = document.getElementById('piadine-grid');
-piadine.forEach(p => {
-  piadineGrid.innerHTML += `
-    <div class="piadina-item">
-      <span class="piadina-num">${p.n}</span>
-      <span class="piadina-name">${p.name}</span>
-    </div>`;
-});
+document.getElementById('piadine-grid').innerHTML = piadine.map(p => `
+  <div class="piadina-item">
+    <span class="piadina-num" aria-hidden="true">${p.n}</span>
+    <span class="piadina-name">${p.name}</span>
+  </div>`).join('');
 
-// Render bibite
-const bibiteGrid = document.getElementById('bibite-grid');
-bibite.forEach(b => {
-  bibiteGrid.innerHTML += `
-    <div class="bibita-item">
-      <span class="bibita-name">${b.name}</span>
-      <span class="bibita-price">€ ${b.p}</span>
-    </div>`;
-});
+document.getElementById('bibite-grid').innerHTML = bibite.map(b => `
+  <div class="bibita-item">
+    <span class="bibita-name">${b.name}</span>
+    <span class="bibita-price">€ ${b.p}</span>
+  </div>`).join('');
 
-// Render allergeni
-const allergeniList = document.getElementById('allergeni-list');
-allergeni.forEach(a => {
-  allergeniList.innerHTML += `
-    <div class="allergene-tag">
-      <span class="allergene-n">${a.n}</span>
-      <span class="allergene-name">${a.name}</span>
-    </div>`;
-});
+document.getElementById('allergeni-list').innerHTML = allergeni.map(a => `
+  <div class="allergene-tag" role="listitem">
+    <span class="allergene-n" aria-hidden="true">${a.n}</span>
+    <span class="allergene-name">${a.name}</span>
+  </div>`).join('');
 
-// Render gallery
-const galleryGrid = document.getElementById('galleria-grid');
-galleryImages.forEach(src => {
-  const img = new Image();
-  img.src = src;
-  img.alt = 'Il Veliero';
-  img.loading = 'lazy';
-  const cell = document.createElement('div');
-  cell.className = 'galleria-cell';
-  cell.appendChild(img);
-  galleryGrid.appendChild(cell);
-});
+document.getElementById('galleria-grid').innerHTML = galleryImages.map(img => `
+  <div class="galleria-cell" role="listitem">
+    <img src="${img.src}" alt="${img.alt}" loading="lazy">
+  </div>`).join('');
 
-// Tabs
-document.querySelectorAll('.tab-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+/* ── Tabs: click + keyboard navigation ── */
+const tabs = document.querySelectorAll('.tab-btn');
+const panels = document.querySelectorAll('.menu-panel');
+
+function activateTab(btn) {
+  tabs.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+  panels.forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected', 'true');
+  document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+}
+
+tabs.forEach((btn, i) => {
+  btn.addEventListener('click', () => activateTab(btn));
+  btn.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); activateTab(tabs[(i + 1) % tabs.length]); tabs[(i + 1) % tabs.length].focus(); }
+    if (e.key === 'ArrowLeft')  { e.preventDefault(); activateTab(tabs[(i - 1 + tabs.length) % tabs.length]); tabs[(i - 1 + tabs.length) % tabs.length].focus(); }
   });
 });
+
+/* ── URL hash per tab diretti ── */
+function applyHash() {
+  const hash = location.hash.replace('#tab-', '');
+  const btn = [...tabs].find(b => b.dataset.tab === hash);
+  if (btn) activateTab(btn);
+}
+applyHash();
+window.addEventListener('hashchange', applyHash);
 </script>
 </body>
 </html>
